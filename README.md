@@ -1,5 +1,0 @@
-# Cofre-P04-CD
-
-Este projeto consiste em um circuito digital capaz de implementar um cofre digital. O circuito irá controlar a abertura da trava eletrônica de um cofre a partir de um pulso em nível alto na saída `Out`.
-
-O circuito digital deverá abrir a trava do cofre após a inserção correta de uma senha pelo usuário. A senha será composta por três valores específicos entre 0 e 63 cada, introduzidos na sequência correta. Estando a trava do cofre fechada (sinalizada por um led RGB na cor vermelha), o usuário deverá pressionar o botão de inicializar o processo e ajustar qual valor será introduzido através das 6 chaves na lateral da IHM (o valor definido nas chaves pode ser conferido nos displays de 7 segmentos). Para a introdução de cada valor específico que compõe a senha, após ajustado pelas chaves, o usuário deverá pressionar o botão de adicionar valor. Após o usuário adicionar os três valores específicos, se os mesmos estiverem corretos e na sequência correta, a trava do cofre será aberta.
