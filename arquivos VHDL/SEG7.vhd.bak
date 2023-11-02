@@ -24,5 +24,3 @@ H(3) <= not(a or (not(b) and d) or (not(b) and c) or (c and not(d)) or (b and no
 H(2) <= not(not(c) or d or b);
 H(1) <= not(not(b) or (not(c) and not(d)) or (c and d));
 H(0) <= not(c or a or (not(b) and not (d)) or (b and d));
-
-end ckt;
