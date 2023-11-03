@@ -84,6 +84,8 @@ architecture ckt of cofre_ckt is
 		Entrada3MuxSenha <= '0' & '0' & '0' & '0' & '0' & '0';
 		
 		EntryBinBCD <= '0' & '0' & SENHA;
+		Entrada0MuxSeg0 <= '1' & '1' & '0' & '1';
+		Entrada0MuxSeg1 <= '1' & '1' & '0' & '1';
 		Entrada1MuxSeg0 <= OutBinBCD(3) & OutBinBCD(2) & OutBinBCD(1) & OutBinBCD(0);
 		Entrada1MuxSeg1 <= OutBinBCD(7) & OutBinBCD(6) & OutBinBCD(5) & OutBinBCD(4);
 		Entrada2MuxSeg0 <= PADRAO_CANCEL;
