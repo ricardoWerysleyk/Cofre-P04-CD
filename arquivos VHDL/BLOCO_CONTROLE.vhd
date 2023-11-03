@@ -10,14 +10,14 @@ end BLOCO_CONTROLE;
 architecture ckt of BLOCO_CONTROLE is
 
     component MAQUINA_ESTADOS is
-        port (clk, FAILURE, SUCCESS: in std_logic; 
-            E:  in std_logic_vector(2 downto 0); 
-            S: out std_logic_vector(2 downto 0);
-            encerrando: out std_logic);
+        Port (clk, FAILURE, SUCCESS: in std_logic;
+		E:  in std_logic_vector(2 downto 0);
+         	S: out std_logic_vector(2 downto 0);
+          	encerrando: out std_logic);
     end component;
 
     component CIRCUITO_COMB is
-        port (btn_ligar, temp, add, s0, s1, s2: in  std_logic;
+        port (s0, s1, s2, btn_ligar, temp, add: in  std_logic;
             display_0, display_1, led_vermelho, led_verde, led_azul, E_0, E_1, E_2: out std_logic);
     end component;
     
@@ -28,7 +28,7 @@ architecture ckt of BLOCO_CONTROLE is
 
     SMAQUINA_ESTADOS: MAQUINA_ESTADOS port map(clk, FAILURE, SUCESS, E, S, encerrando);
 
-    SCIRCUITO_COMB: CIRCUITO_COMB port map(BTN_LIGAR, TEMP, ADD1, S(0), S(1), S(2), DISPLAY(0), DISPLAY(1), LED_VERMELHO, LED_VERDE,LED_AZUL,  E(0), E(1), E(2));
+    SCIRCUITO_COMB: CIRCUITO_COMB port map(S(0), S(1), S(2),BTN_LIGAR, TEMP, ADD1,  DISPLAY(0), DISPLAY(1), LED_VERMELHO, LED_VERDE,LED_AZUL,  E(0), E(1), E(2));
 
 
 end ckt;

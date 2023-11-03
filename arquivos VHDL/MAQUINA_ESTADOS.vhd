@@ -24,10 +24,10 @@ end component;
 	
 	setFF2 <= '1';
 	setFF1 <= '1';
-	setFF0 <= not success and failure;
+	setFF0 <= not success or failure;
 	
-	clearFF2 <= not success and not failure;
-	clearFF1 <= not success and not failure;
+	clearFF2 <= not(success or failure);
+	clearFF1 <= not(success or failure);
 	clearFF0 <=  not failure;
 	
 		

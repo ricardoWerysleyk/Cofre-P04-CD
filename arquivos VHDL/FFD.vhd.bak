@@ -11,8 +11,8 @@ architecture logica of ffd is
 begin
    process(ck, clr, set)
    begin
-      if    (set = '1')            then q <= '1';
-      elsif (clr = '1')            then q <= '0';
+      if    (set = '0')            then q <= '1';
+      elsif (clr = '0')            then q <= '0';
       elsif (ck'event and ck ='1') then q <= d;   
       end if;   
    end process;   
