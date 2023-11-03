@@ -3,7 +3,6 @@ use ieee.std_logic_1164.all;
 
 entity BLOCO_CONTROLE is
 	port(clk, BTN_LIGAR, ADD1, TEMP, FAILURE, SUCESS  : in std_logic;
-            E:  in std_logic_vector(2 downto 0);
             DISPLAY: out std_logic_vector(1 downto 0);
             encerrando, LED_VERMELHO, LED_AZUL, LED_VERDE : out std_logic);
 end BLOCO_CONTROLE;
@@ -23,11 +22,13 @@ architecture ckt of BLOCO_CONTROLE is
     end component;
     
     	signal S: std_logic_vector(2 downto 0);
+        signal E: std_logic_vector(2 downto 0);
 
     begin
 
     SMAQUINA_ESTADOS: MAQUINA_ESTADOS port map(clk, FAILURE, SUCESS, E, S(2), S(1), S(0), encerrando);
 
     SCIRCUITO_COMB: CIRCUITO_COMB port map(ADD1, TEMP, BTN_LIGAR, S(0), S(1), S(2), DISPLAY(0), DISPLAY(1), LED_VERMELHO, LED_AZUL, LED_VERDE, E(0), E(1), E(2));
+
 
 end ckt;
