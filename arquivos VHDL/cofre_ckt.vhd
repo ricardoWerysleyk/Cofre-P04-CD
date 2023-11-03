@@ -67,7 +67,7 @@ architecture ckt of cofre_ckt is
   	signal BTN_LIGAR, LIGADO, ENCERRANDO, ENCERRANDO_BLOCO_CONTROLE, ADD_INTERNO, SenhaINeqSenhaBank, desligango, resete: std_logic;
 	signal tempLedAzul, clrTemp5, tempLedVerde, failure, sucess, sucess_inter, TEMP, encerrbc, sinal_vermelho, sinal_azul, sinal_verde: std_logic;
 	SIGNAL PADRAO_CANCEL, PADRAO_SUCESS: STD_LOGIC_VECTOR(3 downto 0);
-	signal SeletorMuxSeg, SeletorMuxSenhas, S0S1, displayBC: STD_LOGIC_VECTOR(1 downto 0);
+	signal SeletorMuxSeg, SeletorMuxSenhas, S0S1, displayBC, SelMuxSenhas: STD_LOGIC_VECTOR(1 downto 0);
 	signal Entrada0MuxSeg0, Entrada1MuxSeg0, Entrada2MuxSeg0, Entrada3MuxSeg0, SaidaMuxSeg0: STD_LOGIC_VECTOR(3 downto 0);
 	signal Entrada0MuxSeg1, Entrada1MuxSeg1, Entrada2MuxSeg1, Entrada3MuxSeg1, SaidaMuxSeg1: STD_LOGIC_VECTOR(3 downto 0);
 	signal Entrada0MuxSenha, Entrada1MuxSenha, Entrada2MuxSenha, Entrada3MuxSenha, SaidaMuxSenha: STD_LOGIC_VECTOR(5 downto 0);
@@ -107,11 +107,13 @@ architecture ckt of cofre_ckt is
 		muxSeg0: mux_4_1_4_bits port map(Entrada0MuxSeg0, Entrada1MuxSeg0,Entrada2MuxSeg0,Entrada3MuxSeg0,SeletorMuxSeg,SaidaMuxSeg0);
 		muxSeg1: mux_4_1_4_bits port map(Entrada0MuxSeg1, Entrada1MuxSeg1,Entrada2MuxSeg1,Entrada3MuxSeg1,SeletorMuxSeg,SaidaMuxSeg1);
 	   muxSenha: mux_4_1_6_bits port map(Entrada0MuxSenha, Entrada1MuxSenha,Entrada2MuxSenha,Entrada3MuxSenha,SeletorMuxSenhas,SaidaMuxSenha);
-
+		SEG0 <= SaidaMuxSeg0;
+		SEG1 <= SaidaMuxSeg1;
 		desligango <= ENCERRANDO or resete;
 		
-		cont2bits1: contador_2_bits port map(SenhaINeqSenhaBank, desligango, SeletorMuxSenhas);
+		cont2bits1: contador_2_bits port map(SenhaINeqSenhaBank, desligango, SelMuxSenhas);
 		cont2bits2: contador_2_bits port map(ADD_INTERNO, desligango, S0S1);
+		SeletorMuxSenhas <= SelMuxSenhas;
 		
 		clrTemp5 <= sinal_vermelho or sinal_verde;
 		temp5s: temporizador_5s port map(clk, clrTemp5, sinal_azul, tempLedAzul);
