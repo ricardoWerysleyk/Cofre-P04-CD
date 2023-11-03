@@ -19,7 +19,7 @@ signal FFJK0Q,notclr : STD_LOGIC;
 begin
 
 notclr <= not clr;
-FF0: ffJK port map (ck,notclr,'1',E,'0',FFJK0Q);
+FF0: ffJK port map (clk,notclr,'1',E,'0',FFJK0Q);
 
 
 S <=FFJK0Q;
