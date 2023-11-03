@@ -26,9 +26,9 @@ architecture ckt of BLOCO_CONTROLE is
 
     begin
 
-    SMAQUINA_ESTADOS: MAQUINA_ESTADOS port map(clk, FAILURE, SUCESS, E, S(2), S(1), S(0), encerrando);
+    SMAQUINA_ESTADOS: MAQUINA_ESTADOS port map(clk, FAILURE, SUCESS, E, S, encerrando);
 
-    SCIRCUITO_COMB: CIRCUITO_COMB port map(ADD1, TEMP, BTN_LIGAR, S(0), S(1), S(2), DISPLAY(0), DISPLAY(1), LED_VERMELHO, LED_AZUL, LED_VERDE, E(0), E(1), E(2));
+    SCIRCUITO_COMB: CIRCUITO_COMB port map(BTN_LIGAR, TEMP, ADD1, S(0), S(1), S(2), DISPLAY(0), DISPLAY(1), LED_VERMELHO, LED_VERDE,LED_AZUL,  E(0), E(1), E(2));
 
 
 end ckt;
