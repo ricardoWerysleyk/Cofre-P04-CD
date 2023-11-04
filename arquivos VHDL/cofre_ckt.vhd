@@ -64,7 +64,7 @@ architecture ckt of cofre_ckt is
 					encerrando, LED_VERMELHO, LED_AZUL, LED_VERDE : out std_logic);
 	end component;	
 
-  	signal BTN_LIGAR, LIGADO, ENCERRANDO, ENCERRANDO_BLOCO_CONTROLE, ADD_INTERNO, SenhaINeqSenhaBank, desligango, resete: std_logic;
+  	signal BTN_LIGAR, LIGADO, ENCERRANDO, ADD_INTERNO, SenhaINeqSenhaBank, desligango, resete: std_logic;
 	signal tempLedAzul, clrTemp5, tempLedVerde, failure, sucess, sucess_inter, TEMP, encerrbc, sinal_vermelho, sinal_azul, sinal_verde: std_logic;
 	SIGNAL PADRAO_CANCEL, PADRAO_SUCESS: STD_LOGIC_VECTOR(3 downto 0);
 	signal SeletorMuxSeg, SeletorMuxSenhas, S0S1, displayBC, SelMuxSenhas: STD_LOGIC_VECTOR(1 downto 0);
