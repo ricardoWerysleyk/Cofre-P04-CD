@@ -9,17 +9,18 @@ end REGISTRADOR_1_BIT;
 
 architecture ckt of REGISTRADOR_1_BIT is
 
-COMPONENT ffjk is
-   port (ck, clr, set, j, k : in  std_logic;
-                          q : out std_logic);
-end COMPONENT;
+component FFJK_REG_1BIT is
+  port (clk,J,K,prs,clr : in std_logic;
+        Q: out std_logic;
+        Qnot : out std_logic);
+ end component;
 
-signal FFJK0Q,notclr : STD_LOGIC;
+signal FFJK0Q,FFJK0Qb : STD_LOGIC;
 
 begin
 
-notclr <= not clr;
-FF0: ffJK port map (clk,notclr,'1',E,'0',FFJK0Q);
+
+FF0:FFJK_REG_1BIT port map (clk,E,'0','0',clr,FFJK0Q,FFJK0Qb);
 
 
 S <=FFJK0Q;
